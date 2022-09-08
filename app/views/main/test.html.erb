@@ -1,0 +1,13 @@
+<h1>Main#test</h1>
+<%= "num = " + @num.to_s %>
+
+
+<%= form_with url: "/main/check", method: "post" , data: {turbo:false} do |form| %>
+    <% for i in 0...@num do %>
+        <input name="subject[name][]" type="text" required/>
+        <input name="subject[score][]" type="text" required/>
+        <br>  
+    <%end%>
+
+    <%= form.submit "Submit" %>
+<% end %>
